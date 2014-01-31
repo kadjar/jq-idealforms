@@ -88,19 +88,25 @@ module.exports = {
     var self = this
       , $field = this._getField(input);
 
-    $(input)
-      .on('change keyup', function(e) {
-        if (e.which == 9 || e.which == 16) return;
-        self._validate(this, true, true);
-      })
-      .focus(function() {
-        if (! self.isValid(this.name)) {
-          $field.find(self.opts.error).show();
-        }
-      })
-      .blur(function() {
-        $field.find(self.opts.error).hide();
-      });
+    $(input).blur(function() { 
+      self._validate(this, true, true);
+    })
+    // .on('focus', function() {      
+    //   $field.data('idealforms-value')
+    // })
+    // $(input)
+    //   .on('change keyup', function(e) {
+    //     if (e.which == 9 || e.which == 16) return;
+    //     self._validate(this, true, true);
+    //   })
+    //   .focus(function() {
+    //     if (! self.isValid(this.name)) {
+    //       $field.find(self.opts.error).show();
+    //     }
+    //   })
+    //   .blur(function() {
+    //     $field.find(self.opts.error).hide();
+    //   });
   },
 
   _isRequired: function(input) {
@@ -146,7 +152,6 @@ module.exports = {
   },
 
   _validate: function(input, handleError, handleStyle) {
-
     var self = this
       , $field = this._getField(input)
       , userRules = this.opts.rules[input.name].split($.idealforms.ruleSeparator)
@@ -155,9 +160,9 @@ module.exports = {
       , rule;
 
     // Don't validate input if value hasn't changed
-    if (! $(input).is(':checkbox, :radio') && oldValue == input.value) {
-      return $field.data('idealforms-valid');
-    }
+    // if (! $(input).is(':checkbox, :radio') && oldValue == input.value) {
+    //   return $field.data('idealforms-valid');
+    // }
 
     $field.data('idealforms-value', input.value);
 

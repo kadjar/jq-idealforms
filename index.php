@@ -197,7 +197,7 @@
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-  <script src="js/out/jquery.idealforms.js"></script>
+  <script src="js/out/jquery.idealforms.min.js"></script>
   <!--<script src="js/out/jquery.idealforms.min.js"></script>-->
   <script>
 
